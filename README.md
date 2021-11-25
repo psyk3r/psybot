@@ -1,2 +1,8 @@
 # psybot
-Telegram self account cli bot
+>Telegram self cli bot
+
+## How to install
+```bash
+pip3 install -r requirements.txt
+```
+
