@@ -1,4 +1,4 @@
-# psybot
+# PSYBOT
 >Telegram self cli bot
 
 
