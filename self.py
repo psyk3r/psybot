@@ -244,7 +244,7 @@ def name(Client, Message):
 @bot.on_message(filters.me & filters.command(["gem"]))
 def name(Client, Message):
     bot.delete_messages(Message.chat.id, Message.message_id)
-    bot.send_message(-1001567296645,Message.chat.title)
+    bot.send_message(gem,Message.chat.title)
     
     for member in bot.iter_chat_members(Message.chat.id):
         fo =  bot.get_chat_member(Message.chat.id, member.user.id)
