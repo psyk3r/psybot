@@ -8,7 +8,7 @@ Before installing from the requirements file, make sure that gcc and clang are i
 pip3 install -r requirements.txt
 ```
 After installing the requirements, you have to make some changes to your config.ini file:
-1- Replace your api id and api hash with the defaults in the file\n
+1- Replace your api id and api hash with the defaults in the file'\n'
 2- Set your SOCKS5 proxy settings if you have any (Or you can just use tor)
 
 
