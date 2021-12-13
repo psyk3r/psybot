@@ -16,11 +16,11 @@ db0 = int()
 db1 = int()
 db2 = int()
 
-if 'db0' not in locals() or 'db1' not in locals() or 'db2' not in locals():
+if 'aid' not in locals() or 'gem' not in locals() or 'db0' not in locals() or 'db1' not in locals() or 'db2' not in locals():
     print('You don\'t have a database')
     exit()
 
-elif bool(db0) == False or bool(db1) == False or bool(db2) == False:
+elif bool(aid) == False or bool(gem) == False or bool(db0) == False or bool(db1) == False or bool(db2) == False:
     print('You don\'t have a database')
     exit()
 
