@@ -8,12 +8,13 @@ bot = Client(
     config_file="config.ini"
 )
 
-# Channel id or group id to use as database
-aid = int(-1001529034787)
+# Channel id or group id to use as database. Format: dbs = int(-1002003004005)
+aid = int()
+gem = int()
 
-db0 = int(-1001552250936)
-db1 = int(-1001719911926)
-db2 = int(-1001738195907)
+db0 = int()
+db1 = int()
+db2 = int()
 
 if 'db0' not in locals() or 'db1' not in locals() or 'db2' not in locals():
     print('You don\'t have a database')
@@ -162,7 +163,6 @@ def name(Client, Message):
         for message in bot.search_messages(Message.chat.id, from_user="me"):
             delm.append(message.message_id)
         bot.delete_messages(Message.chat.id, delm)
-            #for i in delm:
 
 @bot.on_message(filters.me & filters.command(["lock"]))
 async def name(Client, Message):
@@ -247,7 +247,7 @@ def name(Client, Message):
     for member in bot.iter_chat_members(Message.chat.id):
         fo =  bot.get_chat_member(Message.chat.id, member.user.id)
         chat_info = eval(str(fo).replace('false', 'False').replace('true', 'True'))
-        bot.send_message(-1001567296645, f"""First name : {member.user.first_name}
+        bot.send_message(gem, f"""First name : {member.user.first_name}
 Last name : {member.user.last_name}
 username : {member.user.username}
 user id : {member.user.id}
