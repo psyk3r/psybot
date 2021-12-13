@@ -234,10 +234,12 @@ scam : {Message.reply_to_message.from_user.is_scam}
 
 @bot.on_message(filters.me & filters.command(["s"]))
 def name(Client, Message):
-    bot.send_message(Message.chat.id, "Sending search result")
-    for m in bot.search_messages(Message.chat.id,query=Message.command[1]):
-        sci = str(m.sender_chat.id)[4:14]
-        bot.send_message(Message.chat.id, f"https://t.me/c/{sci}/{m.message_id}")
+	sqr = []
+	bot.edit_message_text(Message.chat.id, Message.message_id, "Sending search result")
+	for m in bot.search_messages(Message.chat.id,query=Message.command[1]):
+		sci = str(m.sender_chat.id)[4:14]
+		sqr.append(f"https://t.me/c/{sci}/{m.message_id}\n")
+	bot.edit_message_text(Message.chat.id, Message.message_id, ", ".join(sqr).replace(', ',''))
 
 @bot.on_message(filters.me & filters.command(["gem"]))
 def name(Client, Message):
