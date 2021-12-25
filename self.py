@@ -232,6 +232,20 @@ scam : {Message.reply_to_message.from_user.is_scam}
     except:
         bot.send_message(db0, "Error occured at saving message in database .")
 
+@bot.on_message(filters.me & filters.command(["cg"]))
+def name(Client, Message):
+    if 3 <= len(Message.command):
+        lis = ''
+        for i in Message.command[1:]:
+           lis = lis + ' ' + i 
+        bot.create_supergroup(lis)
+        bot.edit_message_text(Message.chat.id, Message.message_id, f'{Message.command[1]} group created successfully !')
+    elif 2 == len(Message.command):
+        bot.create_supergroup(str(Message.command[1]))
+        bot.edit_message_text(Message.chat.id, Message.message_id, f'{Message.command[1]} group created successfully !')
+    else:
+        return false
+
 @bot.on_message(filters.me & filters.command(["s"]))
 def name(Client, Message):
 	sqr = []
