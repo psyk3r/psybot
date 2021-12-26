@@ -10,17 +10,16 @@ bot = Client(
 
 # Channel id or group id to use as database. Format: dbs = int(-1002003004005)
 aid = int()
-gem = int()
 
 db0 = int()
 db1 = int()
 db2 = int()
 
-if 'aid' not in locals() or 'gem' not in locals() or 'db0' not in locals() or 'db1' not in locals() or 'db2' not in locals():
+if 'db0' not in locals() or 'db1' not in locals() or 'db2' not in locals():
     print('You don\'t have a database')
     exit()
 
-elif bool(aid) == False or bool(gem) == False or bool(db0) == False or bool(db1) == False or bool(db2) == False:
+elif bool(db0) == False or bool(db1) == False or bool(db2) == False:
     print('You don\'t have a database')
     exit()
 
@@ -159,10 +158,9 @@ def name(Client, Message):
 def name(Client, Message):
     bot.delete_messages(Message.chat.id, Message.message_id)
     if Message.chat.type == 'supergroup' or  Message.chat.type == 'group':
-        delm = []
-        for message in bot.search_messages(Message.chat.id, from_user="me"):
-            delm.append(message.message_id)
-        bot.delete_messages(Message.chat.id, delm)
+        #delm = []
+        for mes in bot.search_messages(Message.chat.id, from_user="me"):
+            bot.delete_messages(Message.chat.id, mes)
 
 @bot.on_message(filters.me & filters.command(["lock"]))
 async def name(Client, Message):
@@ -257,13 +255,17 @@ def name(Client, Message):
 
 @bot.on_message(filters.me & filters.command(["gem"]))
 def name(Client, Message):
-    bot.delete_messages(Message.chat.id, Message.message_id)
-    bot.send_message(gem,Message.chat.title)
     
-    for member in bot.iter_chat_members(Message.chat.id):
-        fo =  bot.get_chat_member(Message.chat.id, member.user.id)
-        chat_info = eval(str(fo).replace('false', 'False').replace('true', 'True'))
-        bot.send_message(gem, f"""First name : {member.user.first_name}
+    try:
+        bot.delete_messages(Message.chat.id,Message.message_id)
+        title = str(Message.chat.title)+" member's log"
+        det = bot.create_supergroup(title)
+        bot.send_message(det.id,Message.chat.title)
+    
+        for member in bot.iter_chat_members(Message.chat.id):
+            fo =  bot.get_chat_member(Message.chat.id, member.user.id)
+            chat_info = eval(str(fo).replace('false', 'False').replace('true', 'True'))
+            bot.send_message(det.id, f"""First name : {member.user.first_name}
 Last name : {member.user.last_name}
 username : {member.user.username}
 user id : {member.user.id}
@@ -271,6 +273,10 @@ status : {member.status}
 bot : {member.user.is_bot}
 scam : {member.user.is_scam}
 Join date: {chat_info.get("joined_date")}""")
-
         
+    except:
+        bot.send_message("me", "Logging group users failed !")
+        return False
+
+
 bot.run()
