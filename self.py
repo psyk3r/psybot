@@ -160,7 +160,7 @@ def name(Client, Message):
     if Message.chat.type == 'supergroup' or  Message.chat.type == 'group':
         #delm = []
         for mes in bot.search_messages(Message.chat.id, from_user="me"):
-            bot.delete_messages(Message.chat.id, mes)
+            bot.delete_messages(Message.chat.id, mes.message_id)
 
 @bot.on_message(filters.me & filters.command(["lock"]))
 async def name(Client, Message):
