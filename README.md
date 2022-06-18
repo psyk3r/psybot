@@ -39,3 +39,7 @@ python3 self.py
 ###### /cg group name (Creates a group. the name of the group is set by the user.eg: /cg telegram programmers)
 ###### /s (Searches for a key word given by the user and returns the matched cases in links. eg: /s john)
 ###### /gem (Sends the information of all group members. Including : user id,name,lastname,username,online status,is bot,is scam,join date)
+
+
+### ToDo List
+- [ ] Reprogram this script compatible with pyrogram v2
