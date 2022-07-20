@@ -31,7 +31,7 @@ def user_id(Client, Message):
                 Message.edit_text(f'{Message.text}\n{Message.entities[1].user.id}')
             elif str(Message.entities[1].type) == 'MessageEntityType.MENTION':
                 Message.edit_text(f'{Message.text}\n{bot.get_users(str(Message.command[1])).id}')
-        except Exception as e:
+        except:
             print("Error. Report it to the maintainer")
     elif hasattr(Message, 'reply_to_message'):
         if hasattr(Message.reply_to_message, 'from_user'):
@@ -107,18 +107,16 @@ def user_del(Client, Message):
             if 1 == len(Message.command):
                 try:
                     bot.delete_user_history(Message.chat.id, int(Message.reply_to_message.from_user.id))
-                except Exception as e:
-                    print(e)
-                    print('\n\n')
+                except:
+                    print("Error. Report it to the maintainer")
                 except:
                     bot.send_message("me", "Error occured")
         elif 2 == len(Message.command):
             print('started\n')
             try:
                 bot.delete_user_history(Message.chat.id, int(Message.command[1]))
-            except Exception as e:
-                print(e)
-                print('\n\n')
+            except:
+		print("Error. Report it to the maintainer")
             except:
                 bot.send_message("me", "Error occured")
     elif str(Message.chat.type) == 'ChatType.GROUP':
@@ -128,18 +126,16 @@ def user_del(Client, Message):
                     print(Message.reply_to_message.from_user.id)
                     for message in bot.search_messages(Message.chat.id, int(Message.reply_to_message.from_user.id)):
                         bot.delete_messages(Message.chat.id, message.id)
-                except Exception as e:
-                    print(e)
-                    print('\n\n')
+                except:
+                    print("Error. Report it to the maintainer")
                 except:
                     bot.send_message("me", "Error occured")
             elif 2 == len(Message.command):
                 try:
                     for message in bot.search_messages(Message.chat.id, int(Message.command[1])):
                         bot.delete_messages(Message.chat.id, message.id)
-                except Exception as e:
-                    print(e)
-                    print('\n\n')
+                except:
+                    print("Error. Report it to the maintainer")
                 except:
                     bot.send_message("me", "Error occured")
 
@@ -151,7 +147,6 @@ def gem(Client, Message):
     for member in bot.get_chat_members(Message.chat.id):
         fo = bot.get_chat_member(Message.chat.id, member.user.id)
         chat_info = eval(str(fo).replace('false', 'False').replace('true', 'True'))
-        #print(chat_info["joined_date"])
         bot.send_message(-1001567296645, f"""First name : {member.user.first_name}
 Last name : {member.user.last_name}
 username : {member.user.username}
@@ -163,7 +158,7 @@ Join date: {chat_info.get("joined_date")}""")
 
 @bot.on_message(filters.me & filters.command(["cg"]))
 def create_grp(Client, Message):
-    if 2 <= len(Message.command):
+   if 2 <= len(Message.command):
         if 3 <= len(Message.command):
             bot.create_supergroup(Message.command[1], Message.command[2])
         else:
@@ -178,7 +173,6 @@ def delete_msg(Client, Message):
 	i = []
 	cnt = 1
 	for message in bot.get_chat_history(chat_id = Message.chat.id, limit = delndx):
-		#i.append(message.id)
 		if len(i) == 1:
 			pass
 		if cnt == 200:
