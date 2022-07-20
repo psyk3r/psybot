@@ -32,8 +32,7 @@ def user_id(Client, Message):
             elif str(Message.entities[1].type) == 'MessageEntityType.MENTION':
                 Message.edit_text(f'{Message.text}\n{bot.get_users(str(Message.command[1])).id}')
         except Exception as e:
-            print(Message)
-            #print("Error. Report it to the maintainer")
+            print("Error. Report it to the maintainer")
     elif hasattr(Message, 'reply_to_message'):
         if hasattr(Message.reply_to_message, 'from_user'):
             Message.edit(f'{Message.text}\n{str(Message.reply_to_message.from_user.id)}')
