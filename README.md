@@ -1,4 +1,4 @@
-# PSYBOT V2 Pre-Alpha
+# PSYBOT V0.2 Pre-Alpha
 >Telegram self cli bot
 
 
