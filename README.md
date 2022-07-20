@@ -36,4 +36,4 @@ python3 self.py
 
 
 ### ToDo List
-- [ ] Reprogram this script compatible with pyrogram v2
+- [X] Reprogram this script compatible with pyrogram v2
