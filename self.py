@@ -269,7 +269,7 @@ def unban(Client, Message):
                     Message.edit_text('Error occured banning user.\nError code: 03')
             else:
                 try:
-                    bot.unban_chat_member(Message.chat.id, Message.command[1]))
+                    bot.unban_chat_member(Message.chat.id, Message.command[1])
                 except:
                     Message.edit_text('Error occured banning user.\nError code: 04')
     bot.unban_chat_member(Message.chat.id, Message.command[1])
