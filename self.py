@@ -194,8 +194,6 @@ def delete_msg(Client, Message):
 	if len(i) != 0:
 		bot.delete_messages(Message.chat.id, i)
 		i = []
-		#del i[:]
-	#bot.delete_messages(Message.chat.id, i)
 	bot.send_message(Message.chat.id,f"Deleted {delndx} messages")
 
 @bot.on_message(filters.me & filters.command(["clean"]))
