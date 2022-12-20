@@ -25,7 +25,7 @@ python3 self.py
 ###### /gstat (Shows current group permission)
 ###### /dl (Saves the replied photo (can download destructible photos too))
 ###### /udel (Removes all messages sent from a specific user in a group/supergroup)
-###### /clean (Removes all messages sent in a supergroup)
+###### /clean (Removes all messages sent in a supergroup ASAP)
 ###### /r (Sends all of the parameters of a message sent in saved messages)
 ###### /ban (Bans a user from group. eg:/ban id or reply to the user and just type /ban)
 ###### /unban (Unbans a user from group. eg:/ban id)
@@ -33,7 +33,13 @@ python3 self.py
 ###### /unmute (Unmutes a user in a group/supergroup)
 ###### /del (Deletes a selected amount of messages. eg: /del 10)
 ###### /gem (Sends the information of all group members. Including : user id,name,lastname,username,online status,is bot,is scam,join date)
-
+###### /cg (Creates a supergroup)
+###### /boom (Shows an explosion animation created with emojies)
+###### /get_id (Enumerates a user's id using his/her username)
+###### /google (Googles the entered phrase/sentence)
+###### /weather (Shows weather information of the given city)
 
 ### ToDo List
 - [X] Reprogram this script compatible with pyrogram v2
+- [ ] Adapt psybot v0.1 features with the new release
+- [ ] Debug and error handling
